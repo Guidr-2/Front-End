@@ -1,5 +1,8 @@
 ## Login
 ## Mobile and Web
+## App.js styling
+## Navigation
+## Footer
 ## Trips 
 	update trips
 	create trips
