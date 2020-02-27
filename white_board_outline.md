@@ -1,7 +1,9 @@
 ## Login
+## Mobile and Web
 ## Trips 
 	update trips
 	create trips
+	Delete trips
 
 ## List of trips pages
 	Individual trip pages
