@@ -9,7 +9,7 @@
 	Delete trips
 
 ## List of trips pages
-	Individual trip pages
+	Individual trips
 
 ## Will use Formik for forms
 ## sign up and login link seperate
