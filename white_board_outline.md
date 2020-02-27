@@ -1,6 +1,6 @@
 ## Login
 ## Mobile and Web
-## App.js styling
+## App.js layout
 ## Navigation
 ## Footer
 ## Trips 
