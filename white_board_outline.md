@@ -1,31 +1,29 @@
-Login
-Trips
+## Login
+## Trips 
 	update trips
 	create trips
 
-List of trips pages
+## List of trips pages
 	Individual trip pages
 
+## Will use Formik for forms
+## sign up and login link seperate
 
-
-Will use Formik for forms
-sign up and login link seperate
-
-Sign up form
+## Sign up form
 	password 
 	username
 
-Login Form
+## Login Form
 	Create password
 	Create username
 
-Create a profile Form 
+## Create a profile Form 
 	title
 	tagline (short description) 
 	type of guide specialty)
 	age and years experience
 
-Create Trip Form 
+## Create Trip Form 
 	`title` - String
 	`description` - String
 	`isPrivate` - Boolean
