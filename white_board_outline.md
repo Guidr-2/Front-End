@@ -3,6 +3,9 @@
 ## App.js layout
 ## Navigation
 ## Footer
+
+buttons: update and delete
+
 ## Trips 
 	update trips
 	create trips
@@ -39,6 +42,3 @@
 	`distance` - double
 	`date` - timestamp
 	`tripType` - String or Enum	
-
-	buttons: update and delete
-
