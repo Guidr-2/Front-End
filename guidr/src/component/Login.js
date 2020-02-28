@@ -1,23 +1,36 @@
 import React from 'react';
 import * as Yup from 'yup';
-// import axios from 'axios';
+import axios from 'axios';
+
+import './LoginForm.css';
 
 import { withFormik, Form, Field } from 'formik';
 
 const Login = ({ values, errors, touched }) => {
-  console.log(values.isSubmitting);
+  // console.log('Submitting', values.isSubmitting);
   return (
-    <Form>
-      <Field type='text' name='username' />
+    <Form className='formBody'>
+      <h1> Login With User and Password </h1>
+      <Field
+        className='input'
+        type='text'
+        name='username'
+        placeholder='UserName'
+      />
       {touched.username && errors.username && (
         <p className='errors'>{errors.username}</p>
       )}
-      <Field type='password' name='password' />
+      <Field
+        className='input'
+        type='password'
+        name='password'
+        placeholder='Password'
+      />
       {touched.password && errors.password && (
         <p className='errors'>{errors.password}</p>
       )}
-      <button type='submit' disabled={values.isSubmitting}>
-        {values.isSubmitting ? 'Submitting' : 'Submit'}
+      <button className='button' type='submit' disabled={values.isSubmitting}>
+        {values.isSubmitting ? 'Submitting' : 'Login'}
       </button>
     </Form>
   );
@@ -39,14 +52,15 @@ export default withFormik({
       .required('Password is Required')
   }),
   handleSubmit: (values, { setSubmitting, resetForm }) => {
-    // axios
-    //   .get('', values)
-    //   .then(response => {
-    //   })
-    //   .catch(err => console.log(err.response));
+    axios
+      .post('https://guidr-2.herokuapp.com/api/auth/login', values)
+      .then(response => {
+        console.log('Data', response);
+      })
+      .catch(err => console.log(err.response));
 
     setTimeout(() => {
-      console.log(values);
+      console.log('Entered Value', values);
       setSubmitting(false);
     }, 1000);
     resetForm();
