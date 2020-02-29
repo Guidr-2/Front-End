@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Login from './component/Login';
+import SignUp from './component/SignUp';
+import { Route, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Something Magical Will Happen Here</h1>
-        <p>
-          This is where the magic happens!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className='App'>
+      <p>
+        <Link exact to='/'>
+          Home
+        </Link>
+      </p>
+
+      <li>
+        <Link to='/Login'>Login</Link>
+      </li>
+      <li>
+        <Link to='/SignUp'>Sign Up</Link>
+      </li>
+
+      <Route path='/login'>
+        <Login />
+      </Route>
+      <Route path='/SignUp'>
+        <SignUp />
+      </Route>
+      {/* <Login /> */}
+      {/* <SignUp /> */}
     </div>
   );
 }
