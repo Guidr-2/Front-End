@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Login from './component/Login';
-import SignUp from './component/SignUp';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 import { Route, Link } from 'react-router-dom';
 
 function App() {
