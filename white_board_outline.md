@@ -28,7 +28,7 @@ buttons: update and delete
 ## Create a profile Form 
 	title
 	tagline (short description) 
-	type of guide specialty)
+	type of guide specialty
 	age and years experience
 
 ## Create Trip Form 
