@@ -43,7 +43,7 @@ buttons: update and delete
 	`date` - timestamp
 	`tripType` - String or Enum	
 
-
+Addinf for commit message!
 	
 
 # **Guidr**
