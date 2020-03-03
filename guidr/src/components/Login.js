@@ -56,7 +56,7 @@ export default withFormik({
     axiosWithAuth()
       .post('auth/login', values)
       .then(response => {
-        console.log('Data', response.data.token);
+        console.log('Data', response.config.data);
         localStorage.setItem('token', response.data.token)
       })
       .catch(err => console.log(err.response));
