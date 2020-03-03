@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Trips from './components/Trips';
 import { Route, Link } from 'react-router-dom';
 
 function App() {
@@ -15,20 +16,33 @@ function App() {
       </p>
 
       <li>
-        <Link to='/Login'>Login</Link>
-      </li>
-      <li>
-        <Link to='/SignUp'>Sign Up</Link>
+        <Link 
+          to='/Login'>
+          Login
+        </Link>
       </li>
 
-      <Route path='/login'>
-        <Login />
+      <li>
+        <Link 
+          to='/SignUp'>
+            Sign Up
+        </Link>
+      </li>
+
+      <Route 
+        path='/login'
+        component={Login}
+      >
       </Route>
-      <Route path='/SignUp'>
-        <SignUp />
+      
+      <Route 
+        path='/SignUp'
+        component={SignUp}
+      >
       </Route>
-      {/* <Login /> */}
-      {/* <SignUp /> */}
+     
+      <Trips />
+
     </div>
   );
 }
