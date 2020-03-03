@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 import './LoginForm.css';
 
@@ -52,10 +53,11 @@ export default withFormik({
       .required('Password is Required')
   }),
   handleSubmit: (values, { setSubmitting, resetForm }) => {
-    axios
-      .post('https://guidr-2.herokuapp.com/api/auth/login', values)
+    axiosWithAuth()
+      .post('auth/login', values)
       .then(response => {
-        console.log('Data', response);
+        console.log('Data', response.data.token);
+        localStorage.setItem('token', response.data.token)
       })
       .catch(err => console.log(err.response));
 

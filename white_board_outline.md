@@ -3,6 +3,7 @@
 ## App.js layout
 ## Navigation
 ## Footer
+## authentication setup. 
 
 buttons: update and delete
 
