@@ -3,6 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 function CreateTrip() {
 	const [newTrip, addAtrip] = useState([]);
+  // console.log(newTrip)
 
 	const handleChange = e => {
 		addAtrip({
@@ -15,17 +16,19 @@ function CreateTrip() {
 		e.preventDefault()
 
 		axiosWithAuth()
-		.post('axiosWithAuth/trips')
+		.post('trips', newTrip, values)
 		.then(response => {
-			
+      console.log(newTrip);
+			addAtrip({newTrip: response.data })
 		})
-	}
+    .catch(err => console.log(err.response, newTrip));
+    };
 
   	return (
   		<div className='CreateTrip'>
   			<h1>Create a new trip here!</h1>
 
-  			<form>
+  			<form onSubmit={handleSubmit}>
   				<input 
   					type='text'
   					name='trip_title'

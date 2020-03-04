@@ -53,6 +53,7 @@ export default withFormik({
       .required('Password is Required')
   }),
   handleSubmit: (values, { props, setSubmitting, resetForm }) => {
+    // console.log(values);
     axiosWithAuth()
       .post('auth/login', values)
       .then(response => {
