@@ -1,47 +1,51 @@
 import React from 'react';
 import './App.css';
+
+import { getToken } from './utils/axiosWithAuth';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Trips from './components/Trips';
 import { Route, Link } from 'react-router-dom';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 function App() {
+
+  const signedIn = getToken();
+
   return (
-
     <div className='App'>
-      <p>
-        <Link exact to='/'>
-          Home
-        </Link>
-      </p>
+      <nav>
+        {!signedIn && 
+          <Link 
+            to='/SignUp'>
+              Sign Up
+          </Link>}
 
-      <li>
-        <Link 
-          to='/Login'>
-          Login
-        </Link>
-      </li>
+        {!signedIn &&
+          <Link 
+            to='/Login'>
+              Login
+          </Link>}
+      </nav>
 
-      <li>
-        <Link 
-          to='/SignUp'>
-            Sign Up
-        </Link>
-      </li>
+      
 
       <Route 
-        path='/login'
+        exact path='/login'
         component={Login}
       >
       </Route>
       
       <Route 
-        path='/SignUp'
+        exact path='/SignUp'
         component={SignUp}
       >
       </Route>
      
-      <Trips />
+      <ProtectedRoute
+        exact path='/Trips'
+        component={Trips}
+      />
 
     </div>
   );

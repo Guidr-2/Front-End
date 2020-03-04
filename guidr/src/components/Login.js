@@ -11,7 +11,7 @@ const Login = ({ values, errors, touched }) => {
   // console.log('Submitting', values.isSubmitting);
   return (
     <Form className='formBody'>
-      <h1> Login With User and Password </h1>
+      <h1> Login </h1>
       <Field
         className='input'
         type='text'
@@ -52,12 +52,13 @@ export default withFormik({
       .max(70, 'Too Long!')
       .required('Password is Required')
   }),
-  handleSubmit: (values, { setSubmitting, resetForm }) => {
+  handleSubmit: (values, { props, setSubmitting, resetForm }) => {
     axiosWithAuth()
       .post('auth/login', values)
       .then(response => {
         console.log('Data', response);
         localStorage.setItem('token', response.data.token)
+        props.history.push('/Trips')
       })
       .catch(err => console.log(err.response));
 

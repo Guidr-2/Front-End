@@ -8,7 +8,7 @@ import { withFormik, Form, Field } from 'formik';
 function SignUp({ values, errors, touched }) {
   return (
     <Form className='formBody'>
-      <h1> Sign Up to Procceed </h1>
+      <h1>Sign Up</h1>
       <Field
         className='input'
         type='text'
