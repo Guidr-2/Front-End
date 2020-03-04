@@ -5,8 +5,9 @@ import { getToken } from './utils/axiosWithAuth';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Trips from './components/Trips';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
+import CreateTrip from './components/CreateTrip';
 
 function App() {
 
@@ -25,6 +26,18 @@ function App() {
           <Link 
             to='/Login'>
               Login
+          </Link>}
+
+        {signedIn && 
+          <Link 
+            to='/CreateTrip'>
+              Create A Trips
+          </Link>}
+
+        {signedIn && 
+          <Link
+            to='/Profile'>
+              Guide Profile
           </Link>}
       </nav>
 
@@ -47,8 +60,13 @@ function App() {
         component={Trips}
       />
 
+      <ProtectedRoute
+        exact path='/CreateTrip'
+        component={CreateTrip}
+      />
+
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
