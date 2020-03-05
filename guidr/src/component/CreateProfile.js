@@ -14,6 +14,7 @@ function validateAge(value) {
   } else if (value > '99') {
     error = 'Your too Old';
   }
+
   return error;
 }
 
@@ -21,10 +22,10 @@ function CreateProfile({ values, errors, touched, ...props }) {
   return (
     <Form className='formBody'>
       <h1> Create New Profile</h1>
-      <Field className='input' as='select' name='title' placeholder='Title'>
-        <option value='mr'></option>
-        <option value='Mr.'> Mr.</option>
-        <option value='Mrs.'> Mrs.</option>
+      <Field className='input' as='select' name='title'>
+        <option disabled>-- select a Title --</option>
+        <option value='Mr.'>Mr.</option>
+        <option value='Mrs.'>Mrs.</option>
       </Field>
       {touched.title && errors.title && (
         <p className='errors'>{errors.title}</p>
@@ -38,17 +39,15 @@ function CreateProfile({ values, errors, touched, ...props }) {
       {touched.tagline && errors.tagline && (
         <p className='errors'>{errors.tagline}</p>
       )}
-      Type of Tour Guid
-      <Field
-        className='input'
-        as='select'
-        name='guide_specialty'
-        placeholder='Title'>
+
+      <Field className='input' as='select' name='guide_specialty'>
+        <option disabled>-- select a Guide Specialty --</option>
         <option value='Free Lance'>Free Lance</option>
         <option value='Staff Guide'>Staff Guide</option>
         <option value='Local Guide'>Local Guide</option>
         <option value='Escort Guide'>Escort Guide</option>
       </Field>
+
       <Field
         validate={validateAge}
         className='input'
