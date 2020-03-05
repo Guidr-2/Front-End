@@ -43,10 +43,22 @@ function App() {
           </Link>}
       </nav>
 
-        <Link 
-          to='/CreateProfile'>
-            Create Profile
-        </Link>
+      <Link 
+        to='/CreateProfile'>
+          Create Profile
+      </Link>
+
+      <Route 
+        exact path='/login'
+        component={Login}
+      >
+      </Route>
+      
+      <Route 
+        exact path='/SignUp'
+        component={SignUp}
+      >
+      </Route>
            
       <ProtectedRoute
         exact path='/Trips'
@@ -61,6 +73,7 @@ function App() {
       <Route path='/CreateProfile'>
         <CreateProfile />
       </Route>
+
       <Route path='/CreateTrip'>
         <CreateTrip />
       </Route>
