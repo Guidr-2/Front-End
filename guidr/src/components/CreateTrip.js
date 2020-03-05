@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
+const jwtDecode = require('jwt-decode');
+
 function CreateTrip() {
 	const [newTrip, addAtrip] = useState([]);
   // console.log(newTrip)
@@ -15,25 +17,34 @@ function CreateTrip() {
 	const handleSubmit = e => {
 		e.preventDefault()
 
+    const decoded = jwtDecode(localStorage.getItem('token'));
+    newTrip.user_id = decoded.userid;
+    // newTrip.is_professional = 1;
+    // newTrip.is_private = 0;
+    // newTrip.distance = '20 miles';
+    // newTrip.date = "2020-06-01 08:00:00:000";
 		axiosWithAuth()
-		.post('trips', newTrip, values)
+		.post('trips', newTrip)
 		.then(response => {
       console.log(newTrip);
 			addAtrip({newTrip: response.data })
+      console.log(response)
+      document.getElementById('reset').reset();
 		})
     .catch(err => console.log(err.response, newTrip));
+    // document.getElementById('reset').reset();
     };
 
   	return (
   		<div className='CreateTrip'>
   			<h1>Create a new trip here!</h1>
 
-  			<form onSubmit={handleSubmit}>
+  			<form onSubmit={handleSubmit} id='reset'>
   				<input 
   					type='text'
-  					name='trip_title'
+  					name='title'
   					placeholder='New Trip Name'
-  					value={newTrip.trip_title}
+  					value={newTrip.title}
   					onChange={handleChange}
   				/>
 
@@ -58,6 +69,7 @@ function CreateTrip() {
   					name='distance'
   					placeholder='Distance Traveled'
   					value={newTrip.distance}
+            onChange={handleChange}
   				/>
 
   				<input 
@@ -68,6 +80,28 @@ function CreateTrip() {
   					onChange={handleChange}
   				/>
 
+          <p>Private Guide</p>
+          <input className='checkbox'
+            type='checkbox'
+            name='is_private'
+            value={newTrip.is_private = 0}
+            onChange={handleChange}
+          />
+
+          <p>Professional Guide</p>
+          <input className='checkbox'
+            type='checkbox'
+            name='is_professional'
+            value={newTrip.is_professional = 0}
+            onChange={handleChange}
+          />
+
+          <input 
+            type='time'
+            name='date'
+            value={newTrip.date}
+            onChange={handleChange}
+          />
   				<button>Add Trip</button>
   			</form>
   		
@@ -76,18 +110,3 @@ function CreateTrip() {
 }
 
 export default CreateTrip;
-
-// POST: endpoint /trips
-
-// Key					Type			Required
-// trip_title
-// id				integer			Yes (server controlled)
-// user_id			integer			Yes
-// trip_title		text			Yes
-// description		text			Yes
-// is_private		integer(0/1)	Yes
-// is_professional	integer(0/1)	Yes
-// duration			text			Yes
-// distance			text			Yes
-// date				text			Yes
-// trip_type		text			Yes
