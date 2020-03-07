@@ -9,10 +9,14 @@ function Trips() {
 
 	return (
 	  	<div>
-	  		<h1>Trips will display here</h1>
 	  			{trips.map(trip => (
 	  				<Trip
 	  					title={trip.title}
+	  					key={trip.id}
+	  					description={trip.description}
+	  					distance={trip.distance}
+	  					date={trip.date}
+	  					type={trip.trip_type}
 	  				/>
 	  			))}
 	  	</div>
