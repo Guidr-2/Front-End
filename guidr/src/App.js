@@ -64,6 +64,12 @@ function App() {
             to='/Profile'>
               Guide Profile
           </Link>}
+        {signedIn && 
+          <Link
+            to='/Trips'>
+              Trip List
+          </Link>
+        }
         {/*signedIn && 
           <Link 
             to='/CreateProfile'>
