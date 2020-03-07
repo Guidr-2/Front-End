@@ -8,7 +8,7 @@ function Trip(props) {
   			<p><strong>TITLE: </strong>{props.title}</p>
   			<p><strong>DESCRIPTION: </strong>{props.description}</p>
   			<p><strong>DISTANCE: </strong>{props.distance}</p>
-  			<p><strong>DATE: </strong>{props. date}</p>
+  			<p><strong>DATE: </strong>{props.date}</p>
   			<p><strong>TYPE: </strong>{props.type}</p>
   		</div>
   	);

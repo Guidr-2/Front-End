@@ -9,6 +9,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 
 import Trips from './components/Trips';
+import Trip from './components/Trip';
 import { Route, Link, withRouter } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
 import CreateTrip from './components/CreateTrip';
@@ -29,9 +30,9 @@ function App() {
   // }
 
   useEffect(() => {
-      // const decoded = jwtDecode(localStorage.getItem('token'));
+      const decoded = jwtDecode(localStorage.getItem('token'));
       // // console.log(decoded);
-      // trips.user_id = decoded.userid;
+      trips.user_id = decoded.userid;
       // !signedIn ? console.log('Signed In') : isSignedIn()
 
       axiosWithAuth()
@@ -101,6 +102,11 @@ function App() {
         <ProtectedRoute
           exact path='/Trips'
           component={Trips}
+        />
+
+        <ProtectedRoute
+        exact path='/Trip/:id'
+        component={Trip}
         />
       </TripsContext.Provider>
 
