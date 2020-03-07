@@ -37,7 +37,7 @@ function CreateTrip() {
 
   	return (
   		<div className='CreateTrip'>
-  			<h1>Create a new trip here!</h1>
+  			<h1>Create a new trip</h1>
 
   			<form onSubmit={handleSubmit} id='reset'>
   				<input 
