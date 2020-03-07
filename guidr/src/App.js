@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import { getToken } from './utils/axiosWithAuth';
+import axiosWithAuth from './utils/axiosWithAuth';
+import { TripsContext } from './contexts/TripsContext';
+
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 
@@ -9,11 +12,31 @@ import Trips from './components/Trips';
 import { Route, Link, withRouter } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
 import CreateTrip from './components/CreateTrip';
-import CreateProfile from './components/CreateProfile';
+// import CreateProfile from './components/CreateProfile';
+
+const jwtDecode = require('jwt-decode');
 
 function App() {
+  const [trips, setTrips] = useState([]);
+  console.log(trips);
 
   const signedIn = getToken();
+
+  useEffect(() => {
+      const decoded = jwtDecode(localStorage.getItem('token'));
+      // console.log(decoded);
+      trips.user_id = decoded.userid;
+  
+      axiosWithAuth()
+      .get('trips')
+      .then(response => {
+        setTrips(response.data)
+        // console.log(response);
+      })
+      .catch(error => {
+        console.log('Ooops', error)
+      })
+    }, [trips.user_id]); 
 
   return (
     <div className='App'>
@@ -60,18 +83,21 @@ function App() {
         component={SignUp}
       >
       </Route>
-           
-      <ProtectedRoute
-        exact path='/Trips'
-        component={Trips}
-      />
+      
+      <TripsContext.Provider value={{ trips }}>
+        <ProtectedRoute
+          exact path='/Trips'
+          component={Trips}
+        />
+      </TripsContext.Provider>
 
       <ProtectedRoute
         exact path='/CreateTrip'
         component={CreateTrip}
       />
 
-      {/*<ProtectedRoute 
+      {/*
+      <ProtectedRoute 
               exact path='/CreateProfile'
               component={CreateProfile}
             />*/}
