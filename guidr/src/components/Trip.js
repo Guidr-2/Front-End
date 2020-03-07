@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Trip(props) {
-	// console.log(props);
+	console.log(props);
   	return (
   		<div className='trip'>
   			<h1>Trip Details</h1>
