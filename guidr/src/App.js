@@ -41,12 +41,13 @@ function App() {
             to='/Profile'>
               Guide Profile
           </Link>}
+        {/*signedIn && 
+          <Link 
+            to='/CreateProfile'>
+              Create Profile
+          </Link>
+        */}
       </nav>
-
-      <Link 
-        to='/CreateProfile'>
-          Create Profile
-      </Link>
 
       <Route 
         exact path='/login'
@@ -70,13 +71,11 @@ function App() {
         component={CreateTrip}
       />
 
-      <Route path='/CreateProfile'>
-        <CreateProfile />
-      </Route>
+      {/*<ProtectedRoute 
+              exact path='/CreateProfile'
+              component={CreateProfile}
+            />*/}
 
-      <Route path='/CreateTrip'>
-        <CreateTrip />
-      </Route>
     </div>
   );
 }

@@ -98,3 +98,8 @@ Guidr helps back country guides of all types log their private/professional trip
 1. Implement remote storage for `images` with an API of your choice - i.e. Cloudinary, CloudKit, etc. (web, mobile)
 2. Based on the "duration" of each trip, in hours, aggregate the trip durations and have a widget that displays how many private and professional hours a "Guide" has across their various categories.
 3. Implement a feature that allows a "Guide" to send/print their outdoor resume in PDF format to give to potential employers, guide licensing organizations, etc.
+
+
+### State 
+Guide profiles
+Trips
