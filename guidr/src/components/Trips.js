@@ -11,18 +11,19 @@ function Trips() {
 	return (
 	  	<div>
 	  		
-	  			{trips.map(trip => (
-	  				<Link to={`/Trip/${trip.id}`}>
-		  				<Trip
-		  					title={trip.title}
-		  					key={trip.id}
-		  					description={trip.description}
-		  					distance={trip.distance}
-		  					date={trip.date}
-		  					type={trip.trip_type}
-		  				/>
-	  				</Link>
-	  			))}
+  			{trips.map(trip => (
+  				<Link to={`/Trip/${trip.id}`}>
+	  				<Trip
+	  					title={trip.title}
+	  					key={trip.id}
+	  					id={trip.id}
+	  					description={trip.description}
+	  					distance={trip.distance}
+	  					date={trip.date}
+	  					type={trip.trip_type}
+	  				/>
+  				</Link>
+  			))}
 	  		
 	  	</div>
 	);

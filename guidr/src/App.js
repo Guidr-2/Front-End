@@ -44,7 +44,7 @@ function App() {
       .catch(error => {
         console.log('Ooops', error)
       })
-    }, [trips.user_id]); 
+    }, [trips.user_id, !signedIn]); 
 
   return (
     <div className='App'>
