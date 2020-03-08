@@ -21,6 +21,12 @@ function Trip(props) {
 		})
 	}
 
+	const updateTrip = (event, id) => {
+		event.preventDefault()
+		console.log('Update Trip')
+
+	}
+
   	return (
   		<div className='trip'>
   			<h1>Trip Details</h1>
@@ -31,6 +37,7 @@ function Trip(props) {
   			<p><strong>TYPE: </strong>{props.type}</p>
 
   			<button onClick={event => deleteTrip(event, props.id)}>Delete Trip</button>
+  			<button onClick={event => updateTrip(event, props.id)}>Update Trip</button>
   		</div>
   	);
 }
