@@ -23,17 +23,17 @@ function App() {
 
   const signedIn = getToken();
 
-  // function isSignedIn() {
-  //    const decoded = jwtDecode(localStorage.getItem('token'));
-  //     // console.log(decoded);
-  //     trips.user_id = decoded.userid;
-  // }
+  function isSignedIn() {
+     const decoded = jwtDecode(localStorage.getItem('token'));
+      // console.log(decoded);
+      trips.user_id = decoded.userid;
+  }
 
   useEffect(() => {
-      const decoded = jwtDecode(localStorage.getItem('token'));
-      // // console.log(decoded);
-      trips.user_id = decoded.userid;
-      // !signedIn ? console.log('Signed In') : isSignedIn()
+      // const decoded = jwtDecode(localStorage.getItem('token'));
+      // // // console.log(decoded);
+      // trips.user_id = decoded.userid;
+      !signedIn ? console.log('Signed In') : isSignedIn()
 
       axiosWithAuth()
       .get('trips')
