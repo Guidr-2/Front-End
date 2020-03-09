@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 function Trips() {
 	const { trips } = useContext(TripsContext);
 
-	console.log(trips)
-
 	return (
 	  	<div>
 	  		

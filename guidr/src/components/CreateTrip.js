@@ -33,7 +33,7 @@ function CreateTrip() {
 		})
     .catch(err => console.log(err.response, newTrip));
     // document.getElementById('reset').reset();
-    };
+  };
 
   	return (
   		<div className='CreateTrip'>

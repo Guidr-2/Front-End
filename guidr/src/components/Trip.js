@@ -1,10 +1,9 @@
 import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Trip(props) {
-	console.log(props);
-
+	// console.log(props);
 	const history = useHistory();
 
 	const deleteTrip = (event, id) => {
