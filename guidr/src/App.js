@@ -15,6 +15,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import CreateTrip from './components/CreateTrip';
 import Logout from './utils/Logout';
 import UpdateTrip from './components/UpdateTrip';
+import SingleTrip from './components/SingleTrip';
 // import CreateProfile from './components/CreateProfile';
 
 const jwtDecode = require('jwt-decode');
@@ -110,16 +111,16 @@ function App() {
         <ProtectedRoute
           exact path='/Trips'
           component={Trips}
-        />
+      />
 
-        <ProtectedRoute
-          exact path='/Trip/:id'
-          component={Trip}
-        />
+      <ProtectedRoute
+        exact path='/Trip/:id'
+        component={Trip}
+      />
 
-        <ProtectedRoute
-          exact path='/UpdateTrip/:id'
-          component={UpdateTrip}
+      <ProtectedRoute
+        exact path='/SingleTrip/:id'
+        component={SingleTrip}
       />
       </TripsContext.Provider>
 
@@ -133,10 +134,10 @@ function App() {
         component={Logout}
       />
 
-      {/*<ProtectedRoute
-              exact path='/UpdateTrip'
-              component={UpdateTrip}
-            />*/}
+      <ProtectedRoute
+        exact path='/UpdateTrip/:id'
+        component={UpdateTrip}
+      />
 
       {/*
       <ProtectedRoute 

@@ -10,7 +10,7 @@ function Trips() {
 	  	<div>
 	  		
   			{trips.map(trip => (
-  				<Link to={`/Trip/${trip.id}`}>
+  				<Link to={`/SingleTrip/${trip.id}`}>
 	  				<Trip
 	  					title={trip.title}
 	  					key={trip.id}
