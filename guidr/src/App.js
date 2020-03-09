@@ -113,9 +113,14 @@ function App() {
         />
 
         <ProtectedRoute
-        exact path='/Trip/:id'
-        component={Trip}
+          exact path='/Trip/:id'
+          component={Trip}
         />
+
+        <ProtectedRoute
+          exact path='/UpdateTrip/:id'
+          component={UpdateTrip}
+      />
       </TripsContext.Provider>
 
       <ProtectedRoute
@@ -128,10 +133,10 @@ function App() {
         component={Logout}
       />
 
-      <ProtectedRoute
-        exact path='/UpdateTrip'
-        component={UpdateTrip}
-      />
+      {/*<ProtectedRoute
+              exact path='/UpdateTrip'
+              component={UpdateTrip}
+            />*/}
 
       {/*
       <ProtectedRoute 

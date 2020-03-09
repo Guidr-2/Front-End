@@ -1,9 +1,9 @@
 import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Trip(props) {
-	// console.log(props);
+	console.log(props.id);
 	const history = useHistory();
 
 	const deleteTrip = (event, id) => {
@@ -20,12 +20,12 @@ function Trip(props) {
 		})
 	}
 
-	const updateTrip = (event, id) => {
-		event.preventDefault()
-		console.log('Update Trip')
+	// const updateTrip = (event, id) => {
+	// 	event.preventDefault()
+	// 	console.log('Update Trip')
 
-		history.push('/UpdateTrip');
-	}
+	// 	history.push('/UpdateTrip');
+	// }
 
   	return (
   		<div className='trip'>
@@ -37,7 +37,10 @@ function Trip(props) {
   			<p><strong>TYPE: </strong>{props.type}</p>
 
   			<button onClick={event => deleteTrip(event, props.id)}>Delete Trip</button>
-  			<button onClick={event => updateTrip(event, props.id)}>Update Trip</button>
+  			{/*<button onClick={event => updateTrip(event, props.id)}>Update Trip</button>*/}
+  			<Link to={`/UpdateTrip/${props.id}`}>
+  				<button>Update Trip</button>
+  			</Link>
   		</div>
   	);
 }

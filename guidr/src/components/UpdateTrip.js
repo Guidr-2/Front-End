@@ -4,16 +4,16 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 const jwtDecode = require('jwt-decode');
 
 function UpdateTrip(props) {
-	console.log(props)
+	// console.log(props)
 	const [tripUpdate, setUpdatedTrip] = useState([]);
-  // console.log(tripUpdate)
+  console.log(tripUpdate)
 
   	useEffect(() => {
 		axiosWithAuth()
 		.get(`trips/${props.match.params.id}`)
 		.then((result) => {
-			console.log(result)
-			setUpdatedTrip(result.data)
+			// console.log(result)
+			setUpdatedTrip(result.data[0])
 		})
 		.catch((error) => {
 			console.log(error)
