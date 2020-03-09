@@ -1,6 +1,6 @@
 import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Trip(props) {
 	console.log(props);
@@ -25,6 +25,7 @@ function Trip(props) {
 		event.preventDefault()
 		console.log('Update Trip')
 
+		history.push('/UpdateTrip');
 	}
 
   	return (

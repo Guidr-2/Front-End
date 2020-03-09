@@ -13,6 +13,8 @@ import Trip from './components/Trip';
 import { Route, Link, withRouter } from 'react-router-dom';
 import ProtectedRoute from './utils/ProtectedRoute';
 import CreateTrip from './components/CreateTrip';
+import Logout from './utils/Logout';
+import UpdateTrip from './components/UpdateTrip';
 // import CreateProfile from './components/CreateProfile';
 
 const jwtDecode = require('jwt-decode');
@@ -78,6 +80,13 @@ function App() {
               Trip List
           </Link>
         }
+
+        {signedIn && 
+          <Link
+            to='/Logout'>
+              Logout
+          </Link>
+        }
         {/*signedIn && 
           <Link 
             to='/CreateProfile'>
@@ -113,6 +122,16 @@ function App() {
       <ProtectedRoute
         exact path='/CreateTrip'
         component={CreateTrip}
+      />
+
+      <ProtectedRoute
+        exact path='/Logout'
+        component={Logout}
+      />
+
+      <ProtectedRoute
+        exact path='/UpdateTrip'
+        component={UpdateTrip}
       />
 
       {/*
