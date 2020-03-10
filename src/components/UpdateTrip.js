@@ -32,12 +32,9 @@ function UpdateTrip(props) {
 	const handleSubmit = e => {
 		e.preventDefault()
 
-	    const decoded = jwtDecode(localStorage.getItem('token'));
-	    tripUpdate.user_id = decoded.userid;
-	    // tripUpdate.is_professional = 1;
-	    // tripUpdate.is_private = 0;
-	    // tripUpdate.distance = '20 miles';
-	    // tripUpdate.date = "2020-06-01 08:00:00:000";
+    const decoded = jwtDecode(localStorage.getItem('token'));
+    tripUpdate.user_id = decoded.userid;
+    
 		axiosWithAuth()
 		.put(`trips/${tripUpdate.id}`, tripUpdate)
 		.then(response => {
