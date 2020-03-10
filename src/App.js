@@ -66,7 +66,7 @@ function App() {
         {signedIn && 
           <Link 
             to='/CreateTrip'>
-              Create A Trips
+              Create A Trip
           </Link>}
 
         {/*signedIn && 
@@ -111,17 +111,17 @@ function App() {
         <ProtectedRoute
           exact path='/Trips'
           component={Trips}
-      />
+        />
 
-      <ProtectedRoute
-        exact path='/Trip/:id'
-        component={Trip}
-      />
+        <ProtectedRoute
+          exact path='/Trip/:id'
+          component={Trip}
+        />
 
-      <ProtectedRoute
-        exact path='/SingleTrip/:id'
-        component={SingleTrip}
-      />
+        <ProtectedRoute
+          exact path='/SingleTrip/:id'
+          component={SingleTrip}
+        />
       </TripsContext.Provider>
 
       <ProtectedRoute

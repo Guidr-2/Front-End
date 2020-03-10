@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { TripsContext } from '../contexts/TripsContext';
 import SingleTripsCard from '../components/SingleTripsCard';
 
-function Trip() {
-
+function Trip(props) {
+console.log(props.match.params.id)
   const { trips } = useContext(TripsContext);
-  console.log(trips);
+  // const [singleTrip, setSingleTrip] = useState([]);
+  const oneTrip = trips.filter(item => item.id === 5);
+  const [ title ] = oneTrip;
+
+  console.log('Trips array:', trips);
+  console.log('One Trip Filtered:', title);
 
   	return (
   		<div className='trip'>

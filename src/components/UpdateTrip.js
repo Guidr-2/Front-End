@@ -6,7 +6,7 @@ const jwtDecode = require('jwt-decode');
 function UpdateTrip(props) {
 	// console.log(props)
 	const [tripUpdate, setUpdatedTrip] = useState([]);
-  console.log(tripUpdate)
+  // console.log(tripUpdate)
 
   	useEffect(() => {
 		axiosWithAuth()
@@ -117,7 +117,7 @@ function UpdateTrip(props) {
             value={tripUpdate.date}
             onChange={handleChange}
           />
-  				<button>Add Trip</button>
+  				<button>Update Trip</button>
   			</form>
   		
     	</div>
