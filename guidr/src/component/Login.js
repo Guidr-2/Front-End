@@ -7,10 +7,9 @@ import './LoginForm.css';
 import { withFormik, Form, Field } from 'formik';
 
 const Login = ({ values, errors, touched }) => {
-  // console.log('Submitting', values.isSubmitting);
   return (
     <Form className='formBody'>
-      <h1> Login With User and Password </h1>
+      <h1 className='title'> Login With User and Password </h1>
       <Field
         className='input'
         type='text'
@@ -55,12 +54,13 @@ export default withFormik({
     axios
       .post('https://guidr-2.herokuapp.com/api/auth/login', values)
       .then(response => {
-        console.log('Data', response);
+        console.log('Data', response.data.message);
       })
       .catch(err => console.log(err.response));
 
     setTimeout(() => {
       console.log('Entered Value', values);
+
       setSubmitting(false);
     }, 1000);
     resetForm();

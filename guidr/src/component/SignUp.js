@@ -8,7 +8,7 @@ import { withFormik, Form, Field } from 'formik';
 function SignUp({ values, errors, touched }) {
   return (
     <Form className='formBody'>
-      <h1> Sign Up to Procceed </h1>
+      <h1 className='title'> Sign Up to Procceed </h1>
       <Field
         className='input'
         type='text'
@@ -53,7 +53,7 @@ export default withFormik({
     axios
       .post('https://guidr-2.herokuapp.com/api/auth/register', values)
       .then(response => {
-        console.log('Data', response);
+        console.log('Data', response.data.message);
       })
       .catch(err => console.log(err.response));
 

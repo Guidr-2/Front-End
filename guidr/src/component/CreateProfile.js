@@ -21,7 +21,7 @@ function validateAge(value) {
 function CreateProfile({ values, errors, touched, ...props }) {
   return (
     <Form className='formBody'>
-      <h1> Create New Profile</h1>
+      <h1 className='title'> Create New Profile</h1>
       <Field className='input' as='select' name='title'>
         <option disabled>-- select a Title --</option>
         <option value='Mr.'>Mr.</option>

@@ -3,6 +3,11 @@
   margin: 0 auto;
   width: 400px;
 }
+.cardBody {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+}
 .input {
   width: 100%;
   padding: 12px 20px;
@@ -25,13 +30,23 @@
   color: black;
 }
 
-h1 {
+.title {
   padding: 20px 10px 20px 10px;
   background-color: #e7e7e7;
   margin: 0 auto;
   font-size: 1rem;
+  text-align: center;
+
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+.profileTitle {
+  padding: 20px 10px 20px 10px;
+  background-color: #e7e7e7;
+  margin: 0 auto;
+  font-size: 1rem;
+  /* border-top-left-radius: 10px; */
+  /* border-top-right-radius: 10px; */
 }
 .errors {
   color: red;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CreateTrip() {
+function CreateTrip(props) {
   return <div className='CreateTrip'></div>;
 }
 

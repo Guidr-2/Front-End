@@ -4,29 +4,30 @@ import Login from './component/Login';
 import SignUp from './component/SignUp';
 import { Route, Link } from 'react-router-dom';
 import CreateProfile from './component/CreateProfile';
-import CreateTrip from './component/CreateTrip';
+import Profile from './component/Profile';
 
 function App() {
   return (
     <div className='App'>
-      <p>
-        <Link exact to='/'>
-          Home
-        </Link>
-      </p>
-
-      <li>
-        <Link to='/Login'>Login</Link>
-      </li>
-      <li>
-        <Link to='/SignUp'>Sign Up</Link>
-      </li>
-      <li>
-        <Link to='/CreateProfile'>Create Profile</Link>
-      </li>
-      <li>
-        <Link to='/CreateTrip'>Create Trip</Link>
-      </li>
+      <div className='nav'>
+        <div>
+          <Link exact to='/'>
+            Home
+          </Link>
+        </div>
+        <div>
+          <Link to='/Login'>Login</Link>
+        </div>
+        <div>
+          <Link to='/SignUp'>Sign Up</Link>
+        </div>
+        <div>
+          <Link to='/CreateProfile'>Create Profile</Link>
+        </div>
+        <div>
+          <Link to='/Profile'>Profile</Link>
+        </div>
+      </div>
 
       <Route path='/login'>
         <Login />
@@ -37,8 +38,8 @@ function App() {
       <Route path='/CreateProfile'>
         <CreateProfile />
       </Route>
-      <Route path='/CreateTrip'>
-        <CreateTrip />
+      <Route path='/Profile'>
+        <Profile />
       </Route>
       {/* <Login /> */}
       {/* <SignUp /> */}
