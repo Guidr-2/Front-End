@@ -20,7 +20,7 @@ import SingleTrip from './components/SingleTrip';
 
 const jwtDecode = require('jwt-decode');
 
-function App() {
+function App(props) {
   const [trips, setTrips] = useState([]);
   // console.log(trips);
   const signedIn = getToken();
@@ -29,6 +29,20 @@ function App() {
      const decoded = jwtDecode(localStorage.getItem('token'));
       // console.log(decoded);
       trips.user_id = decoded.userid;
+  }
+
+  function updateTrip() {
+    // console.log('updateTrip')
+    axiosWithAuth()
+    .get('trips')
+    .then(response => {
+      setTrips(response.data)
+    })
+    .catch(error => {
+      localStorage.removeItem('token');
+      props.history.push('/Login');
+      console.log(error)
+    })
   }
 
   useEffect(() => {
@@ -41,13 +55,14 @@ function App() {
       .get('trips')
       .then(response => {
         setTrips(response.data)
-        console.log(response);
+        // console.log(response);
       })
       .catch(error => {
         localStorage.removeItem('token');
-        console.log(error.name)
+        props.history.push('/Login');
+        console.log(error)
       })
-    }, [trips.user_id, !signedIn]); 
+    }, [trips.user_id, !signedIn, props.history, signedIn]); 
 
   return (
     <div className='App'>
@@ -108,7 +123,7 @@ function App() {
       >
       </Route>
       
-      <TripsContext.Provider value={{ trips }}>
+      <TripsContext.Provider value={{ trips, updateTrip }}>
         <ProtectedRoute
           exact path='/Trips'
           component={Trips}
@@ -123,6 +138,11 @@ function App() {
           exact path='/SingleTrip/:id'
           component={SingleTrip}
         />
+
+        <ProtectedRoute
+          exact path='/UpdateTrip/:id'
+          component={UpdateTrip}
+        />
       </TripsContext.Provider>
 
       <ProtectedRoute
@@ -133,11 +153,6 @@ function App() {
       <ProtectedRoute
         exact path='/Logout'
         component={Logout}
-      />
-
-      <ProtectedRoute
-        exact path='/UpdateTrip/:id'
-        component={UpdateTrip}
       />
 
       {/*

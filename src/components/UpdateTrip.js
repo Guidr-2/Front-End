@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { TripsContext } from '../contexts/TripsContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const jwtDecode = require('jwt-decode');
 
 function UpdateTrip(props) {
-	// console.log(props)
+  const { trips, updateTrip } = useContext(TripsContext);
+	console.log(trips)
+  // console.log(setTrips)
 	const [tripUpdate, setUpdatedTrip] = useState([]);
   // console.log(tripUpdate)
 
   	useEffect(() => {
-		axiosWithAuth()
-		.get(`trips/${props.match.params.id}`)
-		.then((result) => {
-			// console.log(result)
-			setUpdatedTrip(result.data[0])
-		})
-		.catch((error) => {
-			console.log(error)
-		})
+  		axiosWithAuth()
+  		.get(`trips/${props.match.params.id}`)
+  		.then((result) => {
+  			// console.log(result)
+  			setUpdatedTrip(result.data[0])
+        // setTrips(result.data[0])
+        // console.log(trips)
+  		})
+  		.catch((error) => {
+  			console.log(error)
+  		})
 		// we're subscribing to the param, just in case it ever changes
 		// so it'll re-fetch with the new ID
 	}, [props.match.params.id])
@@ -32,6 +37,8 @@ function UpdateTrip(props) {
 	const handleSubmit = e => {
 		e.preventDefault()
 
+    updateTrip();
+
     const decoded = jwtDecode(localStorage.getItem('token'));
     tripUpdate.user_id = decoded.userid;
     
@@ -41,7 +48,8 @@ function UpdateTrip(props) {
 	      	console.log(tripUpdate);
 			setUpdatedTrip({tripUpdate: response.data })
 	      	console.log(response)
-	      	document.getElementById('reset').reset();
+	      	// document.getElementById('reset').reset();
+          props.history.push(`/SingleTrip/${tripUpdate.id}`);
 		})
 	    .catch(err => console.log(err.response, tripUpdate));
 	    // document.getElementById('reset').reset();
