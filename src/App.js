@@ -41,10 +41,11 @@ function App() {
       .get('trips')
       .then(response => {
         setTrips(response.data)
-        // console.log(response);
+        console.log(response);
       })
       .catch(error => {
-        console.log('Ooops', error)
+        localStorage.removeItem('token');
+        console.log(error.name)
       })
     }, [trips.user_id, !signedIn]); 
 

@@ -2,6 +2,7 @@ import axios from "axios";
 
 export function getToken() {
 	// console.log(localStorage.getItem('token'));
+	
 	return localStorage.getItem('token')
 }
 
