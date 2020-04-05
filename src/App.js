@@ -22,7 +22,7 @@ const jwtDecode = require('jwt-decode');
 
 function App(props) {
   const [trips, setTrips] = useState([]);
-  // console.log(trips);
+  console.log(trips);
   const signedIn = getToken();
 
   function isSignedIn() {
